@@ -12,11 +12,11 @@ annotation class DataStoreEntity(val name: String, val dynamicKeys: Boolean = fa
 annotation class DataStoreKey(val name : String)
 
 
-@DataStoreEntity("temp", dynamicKeys = true)
-data class Temp(
-    @DataStoreKey("count") val count : Int,
-    @DataStoreKey("userName") val userName : String,
-    @DataStoreKey("profile") val profile : UserProfile
+@DataStoreEntity("temp", dynamicKeys = false)
+open class Temp(
+    @DataStoreKey("count") val count : Int = 0,
+    @DataStoreKey("userName") val userName : String = "",
+    @DataStoreKey("profile") val profile : UserProfile = UserProfile("", 0)
 )
 
 @Serializable
